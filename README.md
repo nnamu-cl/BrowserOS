@@ -32,6 +32,7 @@
 1. Download and install PrivacyAgent:
    - [macOS](https://bit.ly/nxtscape)
    - [Windows](https://bit.ly/browseros-windows)
+   - [Linux](https://storage.googleapis.com/nxtscape/BrowserOS.AppImage)
 2. Import your Chrome data (optional)
 3. Connect your AI provider (OpenAI, Anthropic, or local Ollama)
 4. Start automating!
