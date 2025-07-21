@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
-"""
-Universal binary merge module for Nxtscape Browser
-Provides functions to merge two architecture builds into a universal binary
-"""
+"""Universal binary merge module for PrivacyAgent
+Provides functions to merge two architecture builds into a universal binary"""
 
 import os
 import sys

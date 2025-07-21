@@ -1,28 +1,27 @@
 <div align="center">
 
-# 
+# PrivacyAgent
+
 <img src="https://pub-b52e24a001bd463a848cb2d8c8667f63.r2.dev/browseros-banner.png" alt="backed-by-yc" >
 
-### Your browser, with AI superpowers 🚀
-#### (Open Source Perplexity Comet Alternative)
+<p align="center">
+  <a href="https://github.com/browseros-ai/PrivacyOS/stargazers"><img src="https://img.shields.io/github/stars/browseros-ai/PrivacyOS" alt="Github Stars"></a>
+  <a href="https://github.com/browseros-ai/PrivacyOS/pulse"><img src="https://img.shields.io/github/commit-activity/m/browseros-ai/PrivacyOS" alt="Commits-per-month"></a>
+  <a href="https://github.com/browseros-ai/PrivacyOS/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/license-AGPL--3.0-blue" alt="License"></a>
+  [![Twitter](https://img.shields.io/twitter/follow/browswerOS_ai?style=social)](https://twitter.com/browseros_ai)
+</p>
 
-[![Discord](https://img.shields.io/badge/Discord-Join%20us-blue)](https://discord.gg/YKwjt5vuKr)
-[![Twitter](https://img.shields.io/twitter/follow/browswerOS_ai?style=social)](https://twitter.com/browseros_ai)
-[![License: AGPL v3](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](LICENSE)
-<a href="https://bit.ly/nxtscape">
-  <img src="https://img.shields.io/badge/Download-macOS-black?style=flat&logo=apple&logoColor=white" alt="Download for macOS (beta)" />
-</a>
-<a href="https://bit.ly/browseros-windows">
-  <img src="https://img.shields.io/badge/Download-Windows-0078D4?style=flat&logo=windows&logoColor=white" alt="Download for Windows (beta)" />
-</a>
-<br />
+<p align="center">
+  <a href="https://bit.ly/browseros-windows">
+    <img src="https://pub-b52e24a001bd463a848cb2d8c8667f63.r2.dev/download-windows.png" alt="Download for Windows" width="200">
+  </a>
+</p>
 
-<br />
-<img src="resources/media/backed-by-yc.png" alt="backed-by-yc" width="140px">
+---
+
+🌐 PrivacyAgent is an open-source agentic browser that runs AI agents locally. **Your privacy-first alternative to Perplexity Comet**.
 
 </div>
-
-🌐 BrowserOS is an open-source agentic browser that runs AI agents locally. **Your privacy-first alternative to Perplexity Comet**.
 
 🔒 Privacy first - use your own API keys or run local models with Ollama. Your data stays on your computer.
 
@@ -30,14 +29,14 @@
 
 ## Quick start
 
-1. Download and install BrowserOS:
+1. Download and install PrivacyAgent:
    - [macOS](https://bit.ly/nxtscape)
    - [Windows](https://bit.ly/browseros-windows)
 2. Import your Chrome data (optional)
 3. Connect your AI provider (OpenAI, Anthropic, or local Ollama)
 4. Start automating!
 
-## What makes BrowserOS special
+## What makes PrivacyAgent special
 
 <div align="center">
 <img src="https://cdn.browseros.com/resources/usecase.png" alt="example-use-cases" width="85%">
@@ -105,7 +104,7 @@ They're a search/ad company. Your browser history becomes their product. We keep
 
 ## Contributing
 
-We'd love your help making BrowserOS better!
+We'd love your help making PrivacyAgent better!
 
 - 🐛 [Report bugs](https://github.com/nxtscape/nxtscape/issues)
 - 💡 [Suggest features](https://dub.sh/nxtscape-feature-request)
@@ -114,7 +113,7 @@ We'd love your help making BrowserOS better!
 
 ## License
 
-BrowserOS is open source under the [AGPL-3.0 license](LICENSE).
+PrivacyAgent is open source under the [AGPL-3.0 license](LICENSE).
 
 ---
 

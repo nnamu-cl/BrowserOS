@@ -1,0 +1,59 @@
+# PrivacyAgent Configuration Schema
+# This file defines the centralized configuration for consistent branding
+
+branding:
+  product_name: "PrivacyAgent"
+  company_name: "PrivacyAgent"
+  company_full_name: "PrivacyAgent Authors"
+  copyright: "Copyright 2025 PrivacyAgent. All rights reserved."
+  
+  # Bundle identifiers
+  mac_bundle_id: "org.PrivacyAgent.PrivacyAgent"
+  enterprise_bundle_id: "org.PrivacyAgent.PrivacyAgentEnterpriseCompanion"
+  
+  # URLs and endpoints
+  github_url: "https://github.com/privacyagent/PrivacyAgent"
+  setup_guide_url: "bit.ly/PrivacyAgent-setup"
+  settings_url: "chrome://settings/privacyagent"
+  first_run_url: "chrome://privacyagent-first-run"
+
+features:
+  ai_chat_extension:
+    enabled: true
+    extension_id: "opocihnfjcgcjecjhjjgifkbkgeeoonh"
+    
+  sparkle_updater:
+    enabled: true
+    feed_url: "https://updates.privacyagent.com/appcast.xml"
+    
+  google_services:
+    api_keys_warning: false
+    sync_enabled: false
+    safe_browsing: "enhanced"
+
+build:
+  version_file: "build/config/NXTSCAPE_VERSION"
+  patch_series: "patches/series"
+  
+  targets:
+    debug:
+      - chrome
+      - chrome_sandbox
+    release:
+      - chrome
+      - chrome_sandbox
+      - installer
+      - symbols
+
+security:
+  code_signing:
+    required: true
+    certificate_path: "certs/privacyagent.p12"
+    
+  sandboxing:
+    enhanced: true
+    
+  privacy:
+    telemetry: false
+    crash_reporting: "opt-in"
+    dns_over_https: true

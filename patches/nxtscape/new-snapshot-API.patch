@@ -1,7 +1,7 @@
 From b374e4a9168438e861e3e5aba8eb88d24a8db676 Mon Sep 17 00:00:00 2001
 From: Nikhil Sonti <nikhilsv92@gmail.com>
 Date: Thu, 17 Jul 2025 13:25:19 -0700
-Subject: [PATCH 2/2] New content API
+Subject: [PATCH 2/2] New content API for PrivacyAgent
 
 ---
  chrome/browser/extensions/BUILD.gn            |   2 +

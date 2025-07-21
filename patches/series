@@ -14,7 +14,7 @@ nxtscape/disable-chrome-labs-pinning.patch
 nxtscape/ai-chat-extension.patch
 nxtscape/bug-reporter-extension.patch
 nxtscape/pin-nxtscape-ai-chat.patch
-nxtscape/browserOS-API.patch
+nxtscape/privacyagent-API.patch
 nxtscape/new-snapshot-API.patch
 
 # updater

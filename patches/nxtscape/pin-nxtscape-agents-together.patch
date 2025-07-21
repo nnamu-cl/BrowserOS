@@ -128,7 +128,7 @@ index 7ccb336f542f3..5d466c5edee0e 100644
  #include "base/metrics/user_metrics.h"
  #include "base/strings/strcat.h"
  #include "chrome/app/vector_icons/vector_icons.h"
-@@ -72,6 +75,20 @@ PinnedActionToolbarButton::PinnedActionToolbarButton(
+@@ -72,6 +75,20 @@ PinnedActionToolbarButton::PinnedActionToolbarButton(   
    GetViewAccessibility().SetDescription(
        std::u16string(), ax::mojom::DescriptionFrom::kAttributeExplicitlyEmpty);
  
@@ -166,8 +166,9 @@ index 7ccb336f542f3..5d466c5edee0e 100644
 +  }
 +
    // Update whether the action is engaged before updating the view.
-   action_view_->SetActionEngaged(
-       action_item->GetProperty(kActionItemUnderlineIndicatorKey));
+  action_view_->SetActionEngaged(
+      action_item->GetProperty(kActionItemUnderlineIndicatorKey));
+}
 -- 
 2.49.0
 

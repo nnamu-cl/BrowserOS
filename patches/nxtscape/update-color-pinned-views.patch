@@ -34,15 +34,20 @@ index 94be59b31d59e..6e5dc229b3c6c 100644
  
 -  if (is_icon_visible_ && action_engaged_) {
 +  // Special case for Clash of GPTs and Third Party LLM - use custom orange color
-+  if (action_id_ == kActionSidePanelShowClashOfGpts ||
-+      action_id_ == kActionSidePanelShowThirdPartyLlm) {
-+    const SkColor orange = SkColorSetRGB(0xFB, 0x65, 0x18);
-+    UpdateIconsWithColors(icon, orange, orange, orange, 
-+                          GetForegroundColor(ButtonState::STATE_DISABLED));
-+  } else if (is_icon_visible_ && action_engaged_) {
-     UpdateIconsWithColors(
-         icon, GetColorProvider()->GetColor(kColorToolbarActionItemEngaged),
-         GetColorProvider()->GetColor(kColorToolbarActionItemEngaged),
+  if (action_id_ == kActionSidePanelShowClashOfGpts ||
+      action_id_ == kActionSidePanelShowThirdPartyLlm) {
+    const SkColor orange = SkColorSetRGB(0xFB, 0x65, 0x18);
+    UpdateIconsWithColors(icon, orange, orange, orange, 
+                          GetForegroundColor(ButtonState::STATE_DISABLED));
+  } else if (is_icon_visible_ && action_engaged_) {
+    UpdateIconsWithColors(
+        icon, GetColorProvider()->GetColor(kColorToolbarActionItemEngaged),
+        GetColorProvider()->GetColor(kColorToolbarActionItemEngaged),
+        GetColorProvider()->GetColor(kColorToolbarActionItemEngaged),
+        GetForegroundColor(ButtonState::STATE_DISABLED));
+  } else {
+    UpdateIconsWithStandardColors(icon);
+  }
 -- 
 2.49.0
 

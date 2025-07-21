@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"
   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
-    <title>Nxtscape Browser</title>
-    <link>https://nxtscape.github.io/nxtscape/appcast.xml</link>
+    <title>PrivacyAgent</title>
+    <link>https://privacyagent.com/</link>
     <description>Most recent changes with links to updates.</description>
     <language>en</language>
 

@@ -36,7 +36,7 @@ class BuildContext:
     # App names - will be set based on platform
     CHROMIUM_APP_NAME: str = ""
     NXTSCAPE_APP_NAME: str = ""
-    NXTSCAPE_APP_BASE_NAME: str = "BrowserOS"  # Base name without extension
+    NXTSCAPE_APP_BASE_NAME: str = "PrivacyAgent"  # Base name without extension
 
     # Third party
     SPARKLE_VERSION: str = "2.7.0"
@@ -230,11 +230,11 @@ class BuildContext:
     # Bundle identifiers
     def get_bundle_identifier(self) -> str:
         """Get main bundle identifier"""
-        return "com.browseros.BrowserOS"
+        return "com.privacyagent.PrivacyAgent"
 
     def get_base_identifier(self) -> str:
         """Get base identifier for components"""
-        return "com.browseros"
+        return "com.privacyagent"
     
     def get_dist_dir(self) -> Path:
         """Get distribution output directory with version"""

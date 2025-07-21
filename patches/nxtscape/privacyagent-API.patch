@@ -1,37 +1,37 @@
 From fd332e09d563fe667f00c541a889d2a4b41dd200 Mon Sep 17 00:00:00 2001
 From: Nikhil Sonti <nikhilsv92@gmail.com>
 Date: Mon, 7 Jul 2025 15:38:54 -0700
-Subject: [PATCH 1/2] browserOS API
+Subject: [PATCH 1/2] privacyagent API
 
 ---
  chrome/browser/extensions/BUILD.gn            |   8 +
- .../api/browser_os/browser_os_api.cc          | 760 ++++++++++++++++++
- .../api/browser_os/browser_os_api.h           | 196 +++++
- .../api/browser_os/browser_os_api_helpers.cc  |  63 ++
- .../api/browser_os/browser_os_api_helpers.h   |  44 +
- .../api/browser_os/browser_os_api_utils.cc    | 378 +++++++++
- .../api/browser_os/browser_os_api_utils.h     |  62 ++
- .../browser_os_snapshot_processor.cc          | 679 ++++++++++++++++
- .../browser_os_snapshot_processor.h           |  89 ++
+ .../api/privacy_agent/privacy_agent_api.cc          | 760 ++++++++++++++++++
+ .../api/privacy_agent/privacy_agent_api.h           | 196 +++++
+ .../api/privacy_agent/privacy_agent_api_helpers.cc  |  63 ++
+ .../api/privacy_agent/privacy_agent_api_helpers.h   |  44 +
+ .../api/privacy_agent/privacy_agent_api_utils.cc    | 378 +++++++++
+ .../api/privacy_agent/privacy_agent_api_utils.h     |  62 ++
+ .../privacy_agent_snapshot_processor.cc          | 679 ++++++++++++++++
+ .../privacy_agent_snapshot_processor.h           |  89 ++
  .../chrome_extensions_browser_api_provider.cc |   8 +
  .../common/extensions/api/_api_features.json  |  28 +
  .../extensions/api/_permission_features.json  |   4 +
  chrome/common/extensions/api/api_sources.gni  |   1 +
- chrome/common/extensions/api/browser_os.idl   | 194 +++++
+ chrome/common/extensions/api/privacy_agent.idl   | 194 +++++
  .../permissions/chrome_api_permissions.cc     |   1 +
  .../extension_function_histogram_value.h      |  12 +
  .../common/mojom/api_permission_id.mojom      |   1 +
  .../histograms/metadata/extensions/enums.xml  |  10 +
  18 files changed, 2538 insertions(+)
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api.cc
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api.h
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api_helpers.cc
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api_helpers.h
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api_utils.cc
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_api_utils.h
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_snapshot_processor.cc
- create mode 100644 chrome/browser/extensions/api/browser_os/browser_os_snapshot_processor.h
- create mode 100644 chrome/common/extensions/api/browser_os.idl
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api.cc
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api.h
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api_helpers.cc
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api_helpers.h
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api_utils.cc
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_api_utils.h
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_snapshot_processor.cc
+ create mode 100644 chrome/browser/extensions/api/privacy_agent/privacy_agent_snapshot_processor.h
+ create mode 100644 chrome/common/extensions/api/privacy_agent.idl
 
 diff --git a/chrome/browser/extensions/BUILD.gn b/chrome/browser/extensions/BUILD.gn
 index d50ffdfbcce34..bbb5a16ccd5d0 100644
@@ -41,22 +41,22 @@ index d50ffdfbcce34..bbb5a16ccd5d0 100644
        "api/bookmark_manager_private/bookmark_manager_private_api.h",
        "api/bookmarks/bookmarks_api.cc",
        "api/bookmarks/bookmarks_api.h",
-+      "api/browser_os/browser_os_api.cc",
-+      "api/browser_os/browser_os_api.h",
-+      "api/browser_os/browser_os_api_helpers.cc",
-+      "api/browser_os/browser_os_api_helpers.h",
-+      "api/browser_os/browser_os_api_utils.cc",
-+      "api/browser_os/browser_os_api_utils.h",
-+      "api/browser_os/browser_os_snapshot_processor.cc",
-+      "api/browser_os/browser_os_snapshot_processor.h",
++      "api/privacy_agent/privacy_agent_api.cc",
++      "api/privacy_agent/privacy_agent_api.h",
++      "api/privacy_agent/privacy_agent_api_helpers.cc",
++      "api/privacy_agent/privacy_agent_api_helpers.h",
++      "api/privacy_agent/privacy_agent_api_utils.cc",
++      "api/privacy_agent/privacy_agent_api_utils.h",
++      "api/privacy_agent/privacy_agent_snapshot_processor.cc",
++      "api/privacy_agent/privacy_agent_snapshot_processor.h",
        "api/chrome_device_permissions_prompt.h",
        "api/chrome_extensions_api_client.cc",
        "api/chrome_extensions_api_client.h",
-diff --git a/chrome/browser/extensions/api/browser_os/browser_os_api.cc b/chrome/browser/extensions/api/browser_os/browser_os_api.cc
+diff --git a/chrome/browser/extensions/api/privacy_agent/privacy_agent_api.cc b/chrome/browser/extensions/api/privacy_agent/privacy_agent_api.cc
 new file mode 100644
 index 0000000000000..c39e67d88e1de
 --- /dev/null
-+++ b/chrome/browser/extensions/api/browser_os/browser_os_api.cc
++++ b/chrome/browser/extensions/api/privacy_agent/privacy_agent_api.cc
 @@ -0,0 +1,760 @@
 +// Copyright 2024 The Chromium Authors
 +// Use of this source code is governed by a BSD-style license that can be

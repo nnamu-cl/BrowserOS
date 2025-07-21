@@ -1,30 +1,31 @@
 #!/usr/bin/env python3
 """
-String replacement module for BrowserOS build system
+String replacement module for PrivacyAgent build system
 """
 
+from typing import List, Tuple
 import re
 from pathlib import Path
 from context import BuildContext
 from utils import log_info, log_success, log_error, log_warning
 
 
-# Strings we want to replace but that we also replace automatically
-# for XTB files
-branding_replacements = [
+# Define string replacements for branding
+STRING_REPLACEMENTS: List[Tuple[str, str]] = [
+    # Copyright replacements
     (
-        r"The Chromium Authors. All rights reserved.",
-        r"The BrowserOS Authors. All rights reserved.",
+        r"Copyright \d{4} The Chromium Authors\. All rights reserved\.",
+        r"The PrivacyAgent Authors. All rights reserved.",
     ),
     (
-        r"Google LLC. All rights reserved.",
-        r"The BrowserOS Authors. All rights reserved.",
+        r"Copyright \d{4} The Chromium Authors",
+        r"The PrivacyAgent Authors. All rights reserved.",
     ),
-    (r"The Chromium Authors", r"BrowserOS Software Inc"),
-    (r"Google Chrome", r"BrowserOS"),
-    (r"(Google)(?! Play)", r"BrowserOS"),
-    (r"Chromium", r"BrowserOS"),
-    (r"Chrome", r"BrowserOS"),
+    (r"The Chromium Authors", r"PrivacyAgent Software Inc"),
+    (r"Google Chrome", r"PrivacyAgent"),
+    (r"(Google)(?! Play)", r"PrivacyAgent"),
+    (r"Chromium", r"PrivacyAgent"),
+    (r"Chrome", r"PrivacyAgent"),
 ]
 
 # List of files to apply replacements to
@@ -58,7 +59,7 @@ def apply_string_replacements(ctx: BuildContext) -> bool:
             replacement_count = 0
 
             # Apply each replacement
-            for pattern, replacement in branding_replacements:
+            for pattern, replacement in STRING_REPLACEMENTS:
                 matches = len(re.findall(pattern, content))
                 if matches > 0:
                     content = re.sub(pattern, replacement, content)
