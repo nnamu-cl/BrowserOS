@@ -1,12 +1,12 @@
 # Nxtscape Debug Build Configuration
 build:
   type: debug
-  architecture: arm64 # Single arch for faster debug builds
+  architecture: x64 # Single arch for faster debug builds on Windows
   # architectures: [x86_64, arm64]  # Uncomment for multi-arch debug
   # universal: false  # Uncomment to disable universal for debug
 
 gn_flags:
-  file: build/config/gn/flags.macos.debug.gn
+  file: build/config/gn/flags.windows.debug.gn
 
 steps:
   clean: false
